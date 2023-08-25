@@ -3,7 +3,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class CarServiceStation {
-    private Map<String, Map<String, Integer>> servicePrices;
+    Map<String, Map<String, Integer>> servicePrices;
 
     public CarServiceStation() {
         servicePrices = new HashMap<>();
@@ -36,25 +36,6 @@ public class CarServiceStation {
         servicePrices.put("SUV", suvPrices);
     }
 
-    public void generateBill(Car car, Service[] services) {
-        int totalBill = 0;
 
-        System.out.println("Type of Car " + car.getType());
-        System.out.println("Service Details:");
-
-        for (Service service : services) {
-            if (servicePrices.containsKey(car.getType()) && servicePrices.get(car.getType()).containsKey(service.getCode())) {
-                int servicePrice = servicePrices.get(car.getType()).get(service.getCode());
-                totalBill += servicePrice;
-                System.out.println("Service Code: " + service.getCode() + ", Charges: " + servicePrice);
-            }
-        }
-
-        System.out.println("Total Bill:- " + totalBill);
-
-        if (totalBill > 10000) {
-            System.out.println("Complimentary cleaning provided.");
-        }
-    }
 
 }
